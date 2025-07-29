@@ -34,6 +34,7 @@ fn main() {
     let backend = match env::var("CARGO_CFG_TARGET_OS").ok().as_deref() {
         Some("macos") => Backend::Linker,
         Some("illumos") | Some("solaris") => Backend::Standard,
+        Some("freebsd") => Backend::Standard,
         _ => Backend::NoOp,
     };
 
